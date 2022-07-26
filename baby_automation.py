@@ -33,7 +33,6 @@ time.sleep(5)
 
 # Read chart
 tabela = pd.read_excel(r"/home/gi/Downloads/Vendas - Dez.xlsx")
-#display(tabela)
 faturamento = tabela["Valor Final"].sum()
 quantidade = tabela["Quantidade"].sum()
 print(faturamento, quantidade)
@@ -53,21 +52,26 @@ pyautogui.press("tab")
 pyautogui.write("Python responde")
 pyautogui.press("tab")
 texto = f"""
-Oi Fla!
+Oi!
 
-Aqui quem fala é o computador da LG, acabei de ser promovido a secretário com independência para enviar meus próprios e-mails! Só não posso mesmo é escolher o que está escrito.
-A LG adorou a mensagem e queria te informar que ela finalmente conseguiu completar o exercício!
+Aqui quem fala é o computador da Giovana, acabei de ser promovido a secretário com independência para enviar meus próprios e-mails! Só não posso mesmo é escolher o que está escrito.
 
-Eu tbm to com saudades de ter um descanso enquanto ela joga jogos, vai no mercado e cuida das plantas com vc, triste :/
-Não tem nenhuma louça dela na pia, não, viu (até onde ela sabe rs)
+No primeiro exercício que ela fez para aprender a automatizar alguns processos, ela criou um código para que eu conseguisse sozinho fazer tudo isso:
+1 - Abrir o navegador
+2 - Fazer o download de uma base de dados que estava salva em uma pasta do seu drive
+3 - Somar a quantidade de produtos e o faturamento total da base de dados (que são esses valores no fim do e-mail)
+4 - Enviar este e-mail
 
-Só pra checar que ta tudo certo mesmo, esses são os números do relatório:
 Quantidade de produtos: {quantidade:,}
-Soma total: {faturamento:,.2f}
+Faturamento: {faturamento:,.2f}
+
+Ela queria que eu passasse algumas observações sobre o código também:
+-> Eu estou um pouco lentinho, por isso que o código ta cheio de linhas pedindo pro próximo comando esperar uns 2 segundos antes de rodar.
+-> As posições dos cliques, o acesso aos arquivos sem precisar da senha, e outras características específicas dessa fazem com que esse código funcione só quando eu é que estou rodando. Mas fica tranquilo que é só alterar algumas coisas quando algum outro pc quiser rodar.
 
 Atenciosamente,
 
-Computador da LG
+Computador da Giovana
  """
 pyperclip.copy(texto)
 pyautogui.hotkey("ctrl","v")
