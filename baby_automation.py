@@ -1,3 +1,6 @@
+"This piece of code opens the browser, downloads a chart, calculates the total quantity of products sold and the total value accumulated, then send an e-mail with the numbers found"
+
+
 import os
 import pyautogui
 import pyperclip
@@ -31,12 +34,13 @@ time.sleep(2)
 pyautogui.press("enter") 
 time.sleep(5)
 
-# Read chart
+# Read chart and calculate results
 tabela = pd.read_excel(r"/home/gi/Downloads/Vendas - Dez.xlsx")
 faturamento = tabela["Valor Final"].sum()
 quantidade = tabela["Quantidade"].sum()
 print(faturamento, quantidade)
 
+# Open e-mail, write the info and send it
 pyautogui.hotkey("ctrl", "t") # open a new tab
 pyperclip.copy("https://outlook.live.com/mail/0/")
 pyautogui.hotkey("ctrl","v")
@@ -44,13 +48,12 @@ pyautogui.press("enter")
 time.sleep(5)
 pyautogui.click(x=183,y=165)
 time.sleep(2)
-pyautogui.write("eng.flavia.firmino@gmail.com")
-pyautogui.press("enter")
 pyautogui.write("gicraveiroo@gmail.com")
 pyautogui.press("enter")
 pyautogui.press("tab")
 pyautogui.write("Python responde")
 pyautogui.press("tab")
+
 texto = f"""
 Oi!
 
